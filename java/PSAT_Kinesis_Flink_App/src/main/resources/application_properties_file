@@ -1,0 +1,31 @@
+[
+  {
+    "PropertyGroupId": "FirstSourceStream",
+    "PropertyMap": {
+      "stream.name"                         : "CompanyTagStream",
+      "aws.region"                          : "us-east-1",
+      "flink.stream.initpos"                : "TRIM_HORIZON",
+      "flink.watermark.sync.interval"       : "1000",
+      "EnvName"                             : "local"
+    }
+  },
+  {
+    "PropertyGroupId": "SecondSourceStream",
+    "PropertyMap": {
+      "stream.name"                         : "UserTagStream",
+      "aws.region"                          : "us-east-1",
+      "flink.stream.initpos"                : "TRIM_HORIZON",
+      "flink.watermark.sync.interval"       : "1000",
+      "EnvName"                             : "local"
+    }
+  },
+  {
+    "PropertyGroupId": "SinkStream",
+    "PropertyMap": {
+      "stream.name"                         : "CompanyUserTagResultStream",
+      "stream.region"                       : "us-east-1",
+      "aws.region"                          : "us-east-1",
+      "EnvName"                             : "local"
+    }
+  }
+]

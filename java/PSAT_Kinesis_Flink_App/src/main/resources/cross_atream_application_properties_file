@@ -1,0 +1,33 @@
+[
+  {
+    "PropertyGroupId": "FirstSourceStream",
+    "PropertyMap": {
+      "stream.name"                                 : "Feature-dms-tsim-companys-stream",
+      "aws.region"                                  : "us-east-1",
+      "flink.stream.initpos"                        : "TRIM_HORIZON",
+      "flink.watermark.sync.interval"               : "1000",
+      "EnvName"                                     : "local",
+    }
+  },
+  {
+    "PropertyGroupId": "SecondSourceStream",
+    "PropertyMap": {
+      "stream.name"                                 : "Feature-dms-tsim-accounts-stream",
+      "aws.region"                                  : "us-east-1",
+      "flink.stream.initpos"                        : "TRIM_HORIZON",
+      "flink.watermark.sync.interval"               : "1000",
+      "EnvName"                                     : "local",
+      "aws.credentials.provider"                    : "ASSUME_ROLE",
+      "aws.credentials.provider.role.arn"           : "arn:aws:iam::646230997622:role/MF-Source-Stream-Role",
+      "aws.credentials.provider.role.sessionName"   : "ksassumedrolesession"
+    }
+  },
+  {
+    "PropertyGroupId": "SinkStream",
+    "PropertyMap": {
+      "stream.name"                                 : "CompanyUserTagResultStream",
+      "aws.region"                                  : "us-east-1",
+      "EnvName"                                     : "local"
+    }
+  }
+]

@@ -1,0 +1,17 @@
+Kinesis stream
+
+awslocal kinesis list-streams
+
+
+
+awslocal kinesis create-stream --stream-name CompanyTagStream --shard-count 1 --region us-east-1
+
+awslocal kinesis create-stream --stream-name UserTagStream --shard-count 1 --region us-east-1
+
+awslocal kinesis create-stream --stream-name CompanyUserTagResultStream --shard-count 1 --region us-east-1
+
+
+
+aws --endpoint-url http://localhost:4566 --region us-east-1 kinesis get-shard-iterator --stream-name CompanyUserTagResultStream --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON
+
+aws --endpoint-url http://localhost:4566 --region us-east-1 kinesis get-records --shard-iterator $SHARD_ITERATOR
